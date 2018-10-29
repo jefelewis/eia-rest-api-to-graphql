@@ -1,0 +1,35 @@
+{
+  "name": "eia-rest-api-to-graphql",
+  "version": "2.0.0",
+  "description": "",
+  "scripts": {
+    "server": "nodemon --exec babel-node ./server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jefelewis/eia-rest-api-to-graphq.git"
+  },
+  "author": "Jeff Lewis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jefelewis/eia-rest-api-to-graphq/issues"
+  },
+  "homepage": "https://github.com/jefelewis/eia-rest-api-to-graphq#readme",
+  "dependencies": {
+    "apollo-boost": "^0.1.17",
+    "apollo-server-express": "^2.1.0",
+    "axios": "^0.18.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.4",
+    "graphql": "^14.0.2",
+    "graphql-tag": "^2.10.0",
+    "opn": "^5.4.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "nodemon": "^1.18.4"
+  }
+}
