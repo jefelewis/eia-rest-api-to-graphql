@@ -61,16 +61,9 @@ const RESOLVERS = {
     },
 
     // CARBON DIOXIDE EMISSIONS
-    // Get Carbon Dioxide Emissions
-    getCarbonDioxideEmissions: (parent, args) => {
-      return axios.get(`http://api.eia.gov/category/?api_key=${eaiAPIKey}&category_id=2251604`)
-        .then(response => response.data)
-        .catch(error => console.log(error));
-    },
-
     // Get Carbon Dioxide Emissions By State
     getCarbonDioxideEmissionsByState: (parent, args) => {
-      return axios.get(`http://api.eia.gov/category/?api_key=${eaiAPIKey}&category_id=2251670`)
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-TT-CO-${state}.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
