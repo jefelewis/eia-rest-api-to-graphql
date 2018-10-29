@@ -15,13 +15,13 @@ const RESOLVERS = {
         .then(response => response.data)
         .catch(error => console.log(error));
     },
-
     // Annual Net Generation (By State)
     getAnnualNetGenerationOfElectricityByState: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=ELEC.GEN.ALL-US-99.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
+
 
     // CONSUMPTION OF ELECTRICITY GENERATION
     // Coal (Thousand Tons)
@@ -30,21 +30,18 @@ const RESOLVERS = {
         .then(response => response.data)
         .catch(error => console.log(error));
     },
-
     // Natural Gas (Thousand MCF)
     getNaturalGasConsumptionForElectricity: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=ELEC.CONS_EG.NG-US-99.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
-    
     // Petroleum Liquids (Thousand Barrels)
     getPetroleumLiquidsConsumptionForElectricity: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=ELEC.CONS_EG.PEL-US-99.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
-
     // Petroleum Coke (Thousand Tons)
     getPetroleumCokeConsumptionForElectricity: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=ELEC.CONS_EG.PC-US-99.A`)
@@ -60,10 +57,26 @@ const RESOLVERS = {
         .catch(error => console.log(error));
     },
 
+
     // CARBON DIOXIDE EMISSIONS
     // Get Carbon Dioxide Emissions By State
     getCarbonDioxideEmissionsByState: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-TT-CO-${state}.A`)
+        .then(response => response.data)
+        .catch(error => console.log(error));
+    },
+    // Get Carbon Dioxide Emissions By Coal
+    getCarbonDioxideEmissionsBy: (parent, args) => {
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-TT-CO-${state}.A`)
+        .then(response => response.data)
+        .catch(error => console.log(error));
+    },
+
+
+    // CRUDE OIL IMPORTS
+    // Get Crude Oil Imports From World To United States (Per Thousand Barrels)
+    getCrudeOilImports: (parent, args) => {
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=PET_IMPORTS.WORLD-US-ALL.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
