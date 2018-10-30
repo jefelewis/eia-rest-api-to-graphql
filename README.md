@@ -7,8 +7,8 @@
 ## About The Data
 Only a fraction of government agencies provide public APIs, which are usually poorly documented and built on REST architecture. Our mission is to retrieve that valuable data and convert them into an intuitive and modern GraphQL API.
 
-The data comes directly from the United States Energy Information Administration's REST API. The REST endpoints have been mapped as GraphQL types and resolvers. A summary of endpoints and documentation can be found here: https://www.eia.gov/opendata/commands.php
-
+The data comes directly from the United States Energy Information Administration's REST API. The REST endpoints have been mapped as GraphQL types and resolvers.
+- A summary of endpoints and documentation can be found [here](https://www.eia.gov/opendata/commands.php).
 - API Key is required. You can sign up for a free API Key [here](https://www.eia.gov/opendata/register.php).
 
 ## Built With
