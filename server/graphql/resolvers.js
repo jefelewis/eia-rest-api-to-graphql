@@ -12,13 +12,13 @@ const RESOLVERS = {
   Query: {
 
     // GENERATION OF ELECTRICITY
-    // Annual Net Generation (United States)
-    getAnnualNetGenerationOfElectricity: (parent, args) => {
+    // Annual Net Generation For United States
+    getAnnualNetGenerationOfElectricityForUS: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=ELEC.GEN.ALL-US-99.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
-    // Annual Net Generation (By State)
+    // Annual Net Generation By State
     getAnnualNetGenerationOfElectricityByState: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=ELEC.GEN.ALL-US-99.A`)
         .then(response => response.data)
@@ -52,16 +52,29 @@ const RESOLVERS = {
         .catch(error => console.log(error));
     },
 
+
     // COST OF ELECTRICITY
-    // Average Retail Price For Electricity
-    getAverageRetailPriceForElectricity: (parent, args) => {
+    // Average Retail Price For Electricity For United States (2001 - 2017)
+    getAverageRetailPriceForElectricityForUS: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=ELEC.PRICE.US-ALL.A`)
+        .then(response => response.data)
+        .catch(error => console.log(error));
+    },
+    // Average Retail Price For Electricity By State (2001 - 2017)
+    getAverageRetailPriceForElectricityByState: (parent, args) => {
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=ELEC.PRICE.${state}-ALL.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
 
 
     // CARBON DIOXIDE EMISSIONS
+    // Get All Carbon Dioxide Emissions For United States (1980 - 2014)
+    getAllCarbonDioxideEmissionsForUS: (parent, args) => {
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-TT-TO-US.A`)
+        .then(response => response.data)
+        .catch(error => console.log(error));
+    },
     // Get All Carbon Dioxide Emissions By State (1980 - 2014)
     getAllCarbonDioxideEmissionsByState: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-TT-TO-${state}.A`)
