@@ -62,7 +62,7 @@ const RESOLVERS = {
     },
     // Average Retail Price For Electricity By State (2001 - 2017)
     getAverageRetailPriceForElectricityByState: (parent, args) => {
-      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=ELEC.PRICE.${state}-ALL.A`)
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=ELEC.PRICE.${args.state}-ALL.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
@@ -84,7 +84,7 @@ const RESOLVERS = {
     },
     // Get All Carbon Dioxide Emissions By State (1980 - 2014)
     getAllCarbonDioxideEmissionsByState: (parent, args) => {
-      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-TT-TO-${state}.A`)
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-TT-TO-${args.state}.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
@@ -96,7 +96,7 @@ const RESOLVERS = {
     },
     // Get Carbon Dioxide Emissions By Coal (1980 - 2014)
     getCoalCarbonDioxideEmissionsByState: (parent, args) => {
-      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-TT-CO-${state}.A`)
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-TT-CO-${args.state}.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
@@ -108,7 +108,7 @@ const RESOLVERS = {
     },
     // Get Carbon Dioxide Emissions By Natural Gas (1980 - 2014)
     getNaturalGasCarbonDioxideEmissionsByState: (parent, args) => {
-      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-NG-${state}.A`)
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-NG-${args.state}.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
@@ -120,7 +120,7 @@ const RESOLVERS = {
     },
     // Get Carbon Dioxide Emissions By Petroleum (1980 - 2014)
     getPetroleumCarbonDioxideEmissionsByState: (parent, args) => {
-      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-PE-CO-${state}.A`)
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-PE-CO-${args.state}.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
@@ -146,7 +146,7 @@ const RESOLVERS = {
     getNuclearOutageByPlantId: (parent, args) => {
       let powerPlants = ["8055", "6040", "6022", "46", "6014"];
 
-      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=NUC_STATUS.OUT_PCT.${powerPlant}.D`)
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=NUC_STATUS.OUT_PCT.${args.powerPlant}.D`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
