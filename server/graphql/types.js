@@ -5,51 +5,51 @@ import { gql } from 'apollo-server-express';
 const TYPEDEFS = gql`
 
   type Query {
-    getAnnualNetGenerationOfElectricityForUS: Data1
-    getAnnualNetGenerationOfElectricityByState(state: String): Data1
+    getAnnualNetGenerationOfElectricityForUS: Test
+    getAnnualNetGenerationOfElectricityByState(state: String): Test
 
-    getCoalConsumptionForElectricity: Data1
-    getNaturalGasConsumptionForElectricity: Data1
-    getPetroleumLiquidsConsumptionForElectricity: Data1
-    getPetroleumCokeConsumptionForElectricity: Data1
+    getCoalConsumptionForElectricity: Test
+    getNaturalGasConsumptionForElectricity: Test
+    getPetroleumLiquidsConsumptionForElectricity: Test
+    getPetroleumCokeConsumptionForElectricity: Test
 
-    getAverageRetailPriceForElectricityForUS: Data1
-    getAverageRetailPriceForElectricityByState(state: String): Data1
+    getAverageRetailPriceForElectricityForUS: Test
+    getAverageRetailPriceForElectricityByState(state: String): Test
 
-    getAllCarbonDioxideEmissionsForUS: Data1
-    getAllCarbonDioxideEmissionsByState(state: String): Data1
+    getAllCarbonDioxideEmissionsForUS: Test
+    getAllCarbonDioxideEmissionsByState(state: String): Test
 
-    getCoalCarbonDioxideEmissionsForUS: Data1
-    getCoalCarbonDioxideEmissionsByState(state: String): Data1  
+    getCoalCarbonDioxideEmissionsForUS: Test
+    getCoalCarbonDioxideEmissionsByState(state: String): Test  
 
-    getNaturalGasCarbonDioxideEmissionsForUS: Data1
-    getNaturalGasCarbonDioxideEmissionsByState(state: String): Data1
+    getNaturalGasCarbonDioxideEmissionsForUS: Test
+    getNaturalGasCarbonDioxideEmissionsByState(state: String): Test
 
-    getPetroleumCarbonDioxideEmissionsForUs: Data1
-    getPetroleumCarbonDioxideEmissionsByState(state: String): Data1
+    getPetroleumCarbonDioxideEmissionsForUs: Test
+    getPetroleumCarbonDioxideEmissionsByState(state: String): Test
 
-    getCrudeOilImports: Data2
+    getCrudeOilImports: Test
 
-    getNuclearOutages: Data2
-    getNuclearOutageByPlantId(plantId: String): Data2
-    getNuclearCapacity: Data2
+    getNuclearOutages: Test
+    getNuclearOutageByPlantId(plantId: String): Test
+    getNuclearCapacity: Test
 
-    getPetroleumProductionByCountry: Data2
-    getNaturalGasProductionByCountry: Data2
-    getCoalProductionByCountry: Data2
-    getElectricityProductionByCountry: Data2
+    getPetroleumProductionByCountry: Test
+    getNaturalGasProductionByCountry: Test
+    getCoalProductionByCountry: Test
+    getElectricityProductionByCountry: Test
 
-    getCrudeOilImportsForUSAnnually: Data2
-    getCrudeOilImportsForUSDaily: Data2
+    getCrudeOilImportsForUSAnnually: Test
+    getCrudeOilImportsForUSDaily: Test
 
-    getCrudeOilExportsForUSAnnually: Data2
-    getCrudeOilExportsForUSDaily: Data2
+    getCrudeOilExportsForUSAnnually: Test
+    getCrudeOilExportsForUSDaily: Test
 
   }
 
-  type Data1 {
+  type Test {
     request: Request
-    series: [Series1]
+    series: [Series]
   }
 
   type Request {
@@ -57,7 +57,7 @@ const TYPEDEFS = gql`
     series_id: String
   }
 
-  type Series1 {
+  type Series {
     series_id: String
     name: String
     units: String
@@ -70,28 +70,7 @@ const TYPEDEFS = gql`
     start: String
     end: String
     updated: String
-  }
-
-  type Data2 {
-    request: Request
-    series: [Series2]
-  }
-
-  type Series2 {
-    series_id: String
-    name: String
-    units: String
-    f: String
-    unitsshort: String
-    description: String
-    source: String
-    copyright: String
-    source: String
-    iso3166: String
-    geography: String
-    start: String
-    end: String
-    updated: String
+    data: [String]
   }
 `;
 
