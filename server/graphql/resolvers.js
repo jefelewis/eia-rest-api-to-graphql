@@ -77,7 +77,7 @@ const RESOLVERS = {
     // },
 
     // Get All Carbon Dioxide Emissions For United States (1980 - 2016)
-    getAllCarbonDioxideEmissionsForUS2: (parent, args) => {
+    getAllCarbonDioxideEmissionsForUS: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=INTL.4008-8-USA-MMTCD.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
@@ -136,6 +136,12 @@ const RESOLVERS = {
 
 
     // NUCLEAR
+    // Nuclear Outages (2007 - Present)
+    getNuclearOutages: (parent, args) => {
+      return axios.get(`http://api.eia.gov/series/?api_key=YOUR_API_KEY_HERE&series_id=NUC_STATUS.OUT.US.D`)
+        .then(response => response.data)
+        .catch(error => console.log(error));
+    },
     // Get Nuclear Outages (Which Nuclear Plants Are Still Active) (2007 - Present)
     getNuclearOutageByPlantId: (parent, args) => {
       let powerPlants = ["8055", "6040", "6022", "46", "6014"];
@@ -144,14 +150,8 @@ const RESOLVERS = {
         .then(response => response.data)
         .catch(error => console.log(error));
     },
-    // Nuclear Outages (2007 - Present)
-    getNuclearOutageByPlantId: (parent, args) => {
-      return axios.get(`http://api.eia.gov/series/?api_key=YOUR_API_KEY_HERE&series_id=NUC_STATUS.OUT.US.D`)
-        .then(response => response.data)
-        .catch(error => console.log(error));
-    },
     // Nuclear Capacity (2007 - Present)
-    getNuclearCapcity: (parent, args) => {
+    getNuclearCapacity: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=YOUR_API_KEY_HERE&series_id=NUC_STATUS.CAP.US.D`)
         .then(response => response.data)
         .catch(error => console.log(error));
@@ -197,9 +197,15 @@ const RESOLVERS = {
 
 
     // INTERNATIONAL IMPORTS
-    // Get Imports Of Crude Oil (1981 - 2017)
-    getCrudeOilExportsForUSAnnually: (parent, args) => {
+    // Get Imports Of Crude Oil Annually (1981 - 2017)
+    getCrudeOilImportsForUSAnnually: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}E&series_id=PET.MTTIMUS1.A`)
+        .then(response => response.data)
+        .catch(error => console.log(error));
+    },
+    // Get Imports Of Crude Oil Daily (1981 - 2017)
+    getCrudeOilImportsForUSDaily: (parent, args) => {
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}E&series_id=PET.MTTIMUS2.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
@@ -207,12 +213,13 @@ const RESOLVERS = {
 
 
     // INTERNATIONAL EXPORTS
-    // Get Exports Of Crude Oil (1870 - 2017)
+    // Get Exports Of Crude Oil Annually (1870 - 2017)
     getCrudeOilExportsForUSAnnually: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=PET.MCREXUS1.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
+    // Get Exports Of Crude Oil Daily
     getCrudeOilExportsForUSDaily: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=PET.MCREXUS2.A`)
         .then(response => response.data)
