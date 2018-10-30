@@ -69,9 +69,16 @@ const RESOLVERS = {
 
 
     // CARBON DIOXIDE EMISSIONS
-    // Get All Carbon Dioxide Emissions For United States (1980 - 2014)
-    getAllCarbonDioxideEmissionsForUS: (parent, args) => {
-      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-TT-TO-US.A`)
+    // // Get All Carbon Dioxide Emissions For United States (1980 - 2014)
+    // getAllCarbonDioxideEmissionsForUS: (parent, args) => {
+    //   return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-TT-TO-US.A`)
+    //     .then(response => response.data)
+    //     .catch(error => console.log(error));
+    // },
+
+    // Get All Carbon Dioxide Emissions For United States (1980 - 2016)
+    getAllCarbonDioxideEmissionsForUS2: (parent, args) => {
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=INTL.4008-8-USA-MMTCD.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
@@ -81,20 +88,38 @@ const RESOLVERS = {
         .then(response => response.data)
         .catch(error => console.log(error));
     },
+    // Get Coal Carbon Dioxide Emissions For United States (1980 - 2016)
+    getCoalCarbonDioxideEmissionsForUs: (parent, args) => {
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=INTL.4002-8-USA-MMTCD.A`)
+        .then(response => response.data)
+        .catch(error => console.log(error));
+    },
     // Get Carbon Dioxide Emissions By Coal (1980 - 2014)
-    getCarbonDioxideEmissionsByCoal: (parent, args) => {
+    getCoalCarbonDioxideEmissionsByState: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-TT-CO-${state}.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
+    // Get Natural Gas Carbon Dioxide Emissions For United States (1980 - 2016)
+    getNaturalGasCarbonDioxideEmissionsForUS: (parent, args) => {
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=INTL.4004-8-USA-MMTCD.A`)
+        .then(response => response.data)
+        .catch(error => console.log(error));
+    },
     // Get Carbon Dioxide Emissions By Natural Gas (1980 - 2014)
-    getCarbonDioxideEmissionsByNaturalGas: (parent, args) => {
+    getNaturalGasCarbonDioxideEmissionsByState: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-NG-${state}.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
+    // Get Petroleum Carbon Dioxide Emissions For United States (1980 - 2015)
+    getPetroleumCarbonDioxideEmissionsForUs: (parent, args) => {
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=INTL.4006-8-USA-MMTCD.A`)
+        .then(response => response.data)
+        .catch(error => console.log(error));
+    },
     // Get Carbon Dioxide Emissions By Petroleum (1980 - 2014)
-    getCarbonDioxideEmissionsByPetroleum: (parent, args) => {
+    getPetroleumCarbonDioxideEmissionsByState: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-PE-CO-${state}.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
@@ -133,6 +158,66 @@ const RESOLVERS = {
     },
 
 
+
+
+    // INTERNATIONAL PRODUCTION
+    // Get Petroleum Production By Country
+    getPetroleumProductionByCountry: (parent, args) => {
+      return axios.get(``)
+        .then(response => response.data)
+        .catch(error => console.log(error));
+    },
+    // Get Natural Gas Production By Country
+    getNaturalGasProductionByCountry: (parent, args) => {
+      return axios.get(``)
+        .then(response => response.data)
+        .catch(error => console.log(error));
+    },
+    // Get Coal Production By Country
+    getCoalProductionByCountry: (parent, args) => {
+      return axios.get(``)
+        .then(response => response.data)
+        .catch(error => console.log(error));
+    },
+    // Get Electricity Production By Country
+    getElectricityProductionByCountry: (parent, args) => {
+      return axios.get(``)
+        .then(response => response.data)
+        .catch(error => console.log(error));
+    },
+
+
+    // INTERNATIONAL CONSUMPTION
+
+
+    
+    // INTERNATIONAL RESERVES AND CAPACITY
+
+
+
+
+    // INTERNATIONAL IMPORTS
+    // Get Imports Of Crude Oil (1981 - 2017)
+    getCrudeOilExportsForUSAnnually: (parent, args) => {
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}E&series_id=PET.MTTIMUS1.A`)
+        .then(response => response.data)
+        .catch(error => console.log(error));
+    },
+
+
+
+    // INTERNATIONAL EXPORTS
+    // Get Exports Of Crude Oil (1870 - 2017)
+    getCrudeOilExportsForUSAnnually: (parent, args) => {
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=PET.MCREXUS1.A`)
+        .then(response => response.data)
+        .catch(error => console.log(error));
+    },
+    getCrudeOilExportsForUSDaily: (parent, args) => {
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=PET.MCREXUS2.A`)
+        .then(response => response.data)
+        .catch(error => console.log(error));
+    },
   },
 };
 
