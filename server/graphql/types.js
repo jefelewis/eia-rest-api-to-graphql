@@ -14,6 +14,9 @@ const TYPEDEFS = gql`
     getPetroleumCarbonDioxideEmissionsForUS: EIA2
     getPetroleumCarbonDioxideEmissionsByState(state: String): EIA2
     
+    getCoalProduction: EIA1
+    getNumberOfCoalMiners: 
+
     getCoalConsumptionForElectricity: EIA1
     getNaturalGasConsumptionForElectricity: EIA1
     getPetroleumLiquidsConsumptionForElectricity: EIA1
