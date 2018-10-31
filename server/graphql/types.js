@@ -25,7 +25,7 @@ const TYPEDEFS = gql`
     getNaturalGasCarbonDioxideEmissionsForUS: Test
     getNaturalGasCarbonDioxideEmissionsByState(state: String): Test
 
-    getPetroleumCarbonDioxideEmissionsForUs: Test
+    getPetroleumCarbonDioxideEmissionsForUS: Test
     getPetroleumCarbonDioxideEmissionsByState(state: String): Test
 
     getCrudeOilImports: Test
