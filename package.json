@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/jefelewis/eia-rest-api-to-graphq#readme",
   "dependencies": {
-    "apollo-boost": "^0.1.17",
+    "apollo-boost": "^0.1.19",
     "apollo-server-express": "^2.1.0",
     "axios": "^0.18.0",
     "cors": "^2.8.4",
@@ -30,6 +30,6 @@
     "@babel/core": "^7.1.2",
     "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.5"
   }
 }
