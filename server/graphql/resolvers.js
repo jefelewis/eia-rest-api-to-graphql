@@ -72,26 +72,42 @@ const RESOLVERS = {
 
 
 
+    // COAL
+    // Coal Production (Tons) (2001 - 2016)
+    getCoalProduction: (parent, args) => {
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=COAL.PRODUCTION.TOT-US-TOT.A`)
+        .then(response => response.data)
+        .catch(error => console.log(error));
+    },
+    // Get Number Of Coal Miners (2001 - 2016)
+    getNumberOfCoalMiners: (parent, args) => {
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=COAL.AVERAGE_EMPLOYEES.US-TOT.A`)
+        .then(response => response.data)
+        .catch(error => console.log(error));
+    },
+
+
+
     // CONSUMPTION
-    // Coal (Thousand Tons)
+    // Coal (Tons) (2001 - 2017)
     getCoalConsumptionForElectricity: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=ELEC.CONS_EG.COW-US-99.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
-    // Natural Gas (Thousand MCF)
+    // Natural Gas (MCF) (2001 - 2017)
     getNaturalGasConsumptionForElectricity: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=ELEC.CONS_EG.NG-US-99.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
-    // Petroleum Liquids (Thousand Barrels)
+    // Petroleum Liquids (Barrels) (2001 - 2017)
     getPetroleumLiquidsConsumptionForElectricity: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=ELEC.CONS_EG.PEL-US-99.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
-    // Petroleum Coke (Thousand Tons)
+    // Petroleum Coke (Tons) (2001 - 2017)
     getPetroleumCokeConsumptionForElectricity: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=ELEC.CONS_EG.PC-US-99.A`)
         .then(response => response.data)
@@ -101,13 +117,13 @@ const RESOLVERS = {
 
 
     // ELECTRICITY
-    // Annual Net Generation For United States
+    // Annual Net Generation For United States (2001 - 2017)
     getAnnualNetGenerationOfElectricityForUS: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=ELEC.GEN.ALL-US-99.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
-    // Annual Net Generation By State
+    // Annual Net Generation By State (2001 - 2017)
     getAnnualNetGenerationOfElectricityByState: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=ELEC.GEN.ALL-US-99.A`)
         .then(response => response.data)
@@ -135,7 +151,7 @@ const RESOLVERS = {
         .then(response => response.data)
         .catch(error => console.log(error));
     },
-    // Get Exports Of Crude Oil Daily
+    // Get Exports Of Crude Oil Daily (1910 - 2017)
     getCrudeOilExportsForUSDaily: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=PET.MCREXUS2.A`)
         .then(response => response.data)
