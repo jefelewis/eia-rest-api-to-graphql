@@ -9,10 +9,8 @@
       name
       units
       f
-      description
       copyright
       source
-      iso3166
       geography
       start
       end
