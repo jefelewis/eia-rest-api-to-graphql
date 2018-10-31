@@ -36,7 +36,137 @@ http://localhost:4000/graphql
 ```
 
 ## GraphQL Query Examples
-**Example #1: Example**
+**Example #1: All Carbon Dioxide Emissions For United States (Million Metric Tons)**
+```
+{
+  getAllCarbonDioxideEmissionsForUS {
+    request {
+      command
+      series_id
+    }
+    series {
+      series_id
+      name
+      units
+      f
+      description
+      copyright
+      source
+      iso3166
+      geography
+      start
+      end
+      updated
+      data
+    }
+  }
+}
 ```
 
+**Example #2: Carbon Dioxide Emissions From Coal For United States (Metric Tons)**
+```
+{
+  getCoalCarbonDioxideEmissionsByState(state: "CA") {
+    request {
+      command
+      series_id
+    }
+    series {
+      series_id
+      name
+      units
+      f
+      description
+      copyright
+      source
+      iso3166
+      geography
+      start
+      end
+      updated
+      data
+    }
+  }
+}
+```
+
+**Example #3: Carbon Dioxide Emissions From Natural Gas For United States (Metric Tons)**
+```
+{
+  getNaturalGasCarbonDioxideEmissionsForUS {
+    request {
+      command
+      series_id
+    }
+    series {
+      series_id
+      name
+      units
+      f
+      copyright
+      source
+      geography
+      start
+      end
+      updated
+      data
+    }
+  }
+}
+```
+
+**Example #4: Coal Consumption For Electricity (Tons)**
+```
+{
+  getCoalConsumptionForElectricity {
+    request {
+      command
+      series_id
+    }
+    series {
+      series_id
+      name
+      units
+      f
+      description
+      copyright
+      source
+      iso3166
+      geography
+      start
+      end
+      updated
+      data
+    }
+  }
+}
+```
+
+**Example #5: Crude Oil Exports (Barrels)**
+```
+{
+  getCrudeOilExportsForUSAnnually {
+    request {
+      command
+      series_id
+    }
+    series {
+      series_id
+      name
+      units
+      f
+      unitsshort
+      description
+      copyright
+      source
+      iso3166
+      geography
+      geography2
+      start
+      end
+      updated
+      data
+    }
+  }
+}
 ```
