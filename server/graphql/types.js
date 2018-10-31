@@ -70,7 +70,12 @@ const TYPEDEFS = gql`
     start: String
     end: String
     updated: String
-    data: [String]
+    data: [[String]]
+  }
+  
+  type AnnualData {
+    year: String
+    thousandMegawattHours: String
   }
 `;
 
