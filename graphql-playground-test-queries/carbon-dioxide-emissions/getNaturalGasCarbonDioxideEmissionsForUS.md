@@ -1,5 +1,5 @@
 {
-  getPetroleumLiquidsConsumptionForElectricity {
+  getNaturalGasCarbonDioxideEmissionsForUS {
     request {
       command
       series_id
