@@ -18,6 +18,9 @@ const RESOLVERS = {
     //     .then(response => response.data)
     //     .catch(error => console.log(error));
     // },
+
+
+    
     // Get All Carbon Dioxide Emissions For United States (1980 - 2016)
     getAllCarbonDioxideEmissionsForUS: (parent, args) => {
       return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=INTL.4008-8-USA-MMTCD.A`)
@@ -50,7 +53,7 @@ const RESOLVERS = {
     },
     // Get Carbon Dioxide Emissions By Natural Gas (1980 - 2014)
     getNaturalGasCarbonDioxideEmissionsByState: (parent, args) => {
-      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-NG-${args.state}.A`)
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-TT-NG-${args.state}.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
@@ -62,7 +65,7 @@ const RESOLVERS = {
     },
     // Get Carbon Dioxide Emissions By Petroleum (1980 - 2014)
     getPetroleumCarbonDioxideEmissionsByState: (parent, args) => {
-      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-PE-CO-${args.state}.A`)
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=EMISS.CO2-TOTV-TT-PE-${args.state}.A`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
@@ -179,7 +182,7 @@ const RESOLVERS = {
     getNuclearOutageByPlantId: (parent, args) => {
       let powerPlants = ["8055", "6040", "6022", "46", "6014"];
 
-      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=NUC_STATUS.OUT_PCT.${args.powerPlant}.D`)
+      return axios.get(`http://api.eia.gov/series/?api_key=${eaiAPIKey}&series_id=NUC_STATUS.OUT_PCT.${args.plantId}.D`)
         .then(response => response.data)
         .catch(error => console.log(error));
     },
